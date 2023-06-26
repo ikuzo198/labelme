@@ -1,0 +1,1 @@
+labelme --labels datasets/label_list/

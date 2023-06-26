@@ -1,5 +1,3 @@
-__ignore__
-_background_
 cheez-it_cracker_box
 domino_sugar_box
 jell-o_chocolate_pudding_box

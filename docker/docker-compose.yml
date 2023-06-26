@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  labelme:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    tty: true
+    user: $DOCKER_USER
+    environment:
+      - DISPLAY=${DISPLAY}
+      - NUMBA_CACHE_DIR=/tmp
+    volumes:
+      - ../:/labelme/
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    devices:
+      - "/dev/video0:/dev/video0"

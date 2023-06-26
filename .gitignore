@@ -9,3 +9,7 @@
 
 .DS_Store
 .idea/
+
+/datasets/rc23/*
+/examples/*
+*.zip
