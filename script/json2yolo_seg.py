@@ -1,33 +1,45 @@
 import json, os, glob
 
-data_path:str = "/root/im_ws/github/ultralytics/ultralytics/datasets/rc23/ohirome/val/annotated"
+data_path:str = "/labelme/datasets/folder/for_ohiromekai/ohiromekai"
 
 json_list = glob.glob(f"{data_path}/*.json")
 
 width = 640
 height = 480
 
-# FOR JPN Ohiromekai
+# FOR RC23
 labels = {
-    'cereal_box': 0, 'domino_sugar_box': 1, 'jell-o_chocolate_pudding_box': 2, 'jell-o_strawberry_gelatin_box': 3,
-    'spam_potted_meat_can': 4, 'master_chef_coffee_can': 5, 'starkist_tuna_fish_can': 6, 'pringles_chips_can': 7,
-    'frenchs_mustard_bottle': 8, 'tomato_soup_can': 9, 'angelbites': 10, 'milk_carton': 11, 'banana': 12,
-    'apple': 13, 'lemon': 14, 'orange': 15, 'plum': 16, 'scrub_cleanser_bottle': 17, 'plate': 18, 'bowl': 19,
-    'fork': 20, 'spoon': 21, 'knife': 22, 'mug': 23, 'soccer_ball': 24, 'soft_ball': 25, 'baseball': 26,
-    'tennis_ball': 27, 'racquetball': 28, 'golf_ball': 29, 'rubiks_cube': 30, 'whale_doll': 31,
-    'truck_toy': 32, 'dinosaur_toy': 33, 'bottle': 34
+    'cheez-it_cracker_box': 0, 'domino_sugar_box': 1, 'jell-o_chocolate_pudding_box': 2,
+    'jell-o_strawberry_gelatin_box': 3, 'spam_potted_meat_can': 4, 'master_chef_coffee_can': 5,
+    'starkist_tuna_fish_can': 6, 'pringles_chips_can': 7, 'frenchs_mustard_bottle': 8, 'tomato_soup_can': 9,
+    'banana': 10, 'strawberry': 11, 'apple': 12, 'lemon': 13, 'peach': 14, 'pear': 15, 'orange': 16, 'plum': 17,
+    'scrub_cleanser_bottle': 18, 'plate': 19, 'bowl': 20, 'fork': 21, 'spoon': 22, 'knife': 23, 'mug': 24, 'soccer_ball': 25,
+    'soft_ball': 26, 'baseball': 27, 'tennis_ball': 28, 'racquetball': 29, 'golf_ball': 30, 'dice': 31,
+    'rubiks_cube': 32, 'cola': 33, 'cornflaces': 34, 'iced_tea': 35, 'juice_pack': 36, 'milk': 37, 'orange_juice': 38,
+    'red_wine': 39, 'tropical_juice': 40, 'sponge': 41
 }
 
-# FOR JPN RC23 add real fluits
+# FOR JPN Ohiromekai
 # labels = {
-#     'cheez-it_cracker_box': 0, 'domino_sugar_box': 1, 'jell-o_chocolate_pudding_box': 2,
-#     'jell-o_strawberry_gelatin_box': 3, 'spam_potted_meat_can': 4, 'master_chef_coffee_can': 5, 'starkist_tuna_fish_can': 6,
-#     'pringles_chips_can': 7, 'frenchs_mustard_bottle': 8, 'tomato_soup_can': 9, 'plastic_banana': 10, 'plastic_strawberry': 11,
-#     'plastic_apple': 12, 'plastic_lemon': 13, 'plastic_peach': 14, 'plastic_pear': 15, 'plastic_orange': 16,
-#     'plastic_plum': 17, 'scrub_cleanser_bottle': 18, 'plate': 19, 'bowl': 20, 'fork': 21, 'spoon': 22, 'spatula': 23,
-#     'mug': 24, 'soccer_ball': 25, 'soft_ball': 26, 'baseball': 27, 'tennis_ball': 28, 'racquetball': 29, 'golf_ball': 30,
-#     'dice': 31, 'rubiks_cube': 32, 'orange': 33, 'apple': 34, 'kiwi': 35, 'lemon': 36, 'lime': 37, 'plum': 38
+#     'cereal_box': 0, 'domino_sugar_box': 1, 'jell-o_chocolate_pudding_box': 2, 'jell-o_strawberry_gelatin_box': 3,
+#     'spam_potted_meat_can': 4, 'master_chef_coffee_can': 5, 'starkist_tuna_fish_can': 6, 'pringles_chips_can': 7,
+#     'frenchs_mustard_bottle': 8, 'tomato_soup_can': 9, 'angelbites': 10, 'milk_carton': 11, 'banana': 12,
+#     'apple': 13, 'lemon': 14, 'orange': 15, 'plum': 16, 'scrub_cleanser_bottle': 17, 'plate': 18, 'bowl': 19,
+#     'fork': 20, 'spoon': 21, 'knife': 22, 'mug': 23, 'soccer_ball': 24, 'soft_ball': 25, 'baseball': 26,
+#     'tennis_ball': 27, 'racquetball': 28, 'golf_ball': 29, 'rubiks_cube': 30, 'whale_doll': 31,
+#     'truck_toy': 32, 'dinosaur_toy': 33, 'bottle': 34
 # }
+
+# FOR JPN RC23 add real fluits
+labels = {
+    'cheez-it_cracker_box': 0, 'domino_sugar_box': 1, 'jell-o_chocolate_pudding_box': 2,
+    'jell-o_strawberry_gelatin_box': 3, 'spam_potted_meat_can': 4, 'master_chef_coffee_can': 5, 'starkist_tuna_fish_can': 6,
+    'pringles_chips_can': 7, 'frenchs_mustard_bottle': 8, 'tomato_soup_can': 9, 'plastic_banana': 10, 'plastic_strawberry': 11,
+    'plastic_apple': 12, 'plastic_lemon': 13, 'plastic_peach': 14, 'plastic_pear': 15, 'plastic_orange': 16,
+    'plastic_plum': 17, 'scrub_cleanser_bottle': 18, 'plate': 19, 'bowl': 20, 'fork': 21, 'spoon': 22, 'spatula': 23,
+    'mug': 24, 'soccer_ball': 25, 'soft_ball': 26, 'baseball': 27, 'tennis_ball': 28, 'racquetball': 29, 'golf_ball': 30,
+    'dice': 31, 'rubiks_cube': 32, 'orange': 33, 'apple': 34, 'kiwi': 35, 'lemon': 36, 'lime': 37, 'plum': 38
+}
 
 # YCB
 # labels = {'cheez-it_cracker_box': 0, 'domino_sugar_box': 1, 'jell-o_chocolate_pudding_box': 2, \
